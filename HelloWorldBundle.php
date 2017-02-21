@@ -1,9 +1,9 @@
 <?php
 
 namespace
-MauticPlugin\HelloWorldBundle
+MauticPlugin\HelloWorldBundle;
 
-use Doctring\DBAL\Schema\Schema;
+use Doctrine\DBAL\Schema\Schema;
 use Mautic\PluginBundle\Bundle\PluginBundleBase;
 use Mautic\PluginBundle\Entity\Plugin;
 use Mautic\CoeBundle\Factory\MauticFactory;
@@ -12,8 +12,11 @@ class HelloWorldBundle extends PluginBundleBase {
   // make it say "Hello World" somewhere?
 
   /**
-  * Some comments that may also be code?
-  * Leaving them out to see if it's breaking... or just documentation
+  * Called by PluginController::reloadAction when adding a new plugin that's not already installed
+  *
+  * @param Plugin         $plugin
+  * @param MauticFactory  $factory
+  * @param null           $metadata
   */
 
   static public function onPluginInstall(Plugin $plugin, MauticFactory $factory, $metadata = null) {
@@ -26,8 +29,14 @@ class HelloWorldBundle extends PluginBundleBase {
   }
 
   /**
-  * Some comments that may also be code?
-  * Leaving them out to see if it's breaking... or just documentation
+  * Called by PluginController::reloadAction when the plugin version does not match what's installed
+  *
+  * @param Plugin         $plugin
+  * @param MauticFactory  $factory
+  * @param null           $metadata
+  * @param Schema         $installedSchema
+  *
+  * @throws \Exception
   */
 
   static public function onPluginUpdate(Plugin $plugin, MauticFactory $factory, $metadata = null, Schema $installedSchema = null) {
