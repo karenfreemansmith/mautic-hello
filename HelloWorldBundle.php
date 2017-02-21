@@ -1,11 +1,11 @@
 <?php
 
 namespace
-MauticPlugin\HelloBundle
+MauticPlugin\HelloWorldBundle
 
 use Mautic\PluginBundle\Bundle\PluginBundleBase;
 
-class HelloBundle extends PluginBundleBase {
+class HelloWorldBundle extends PluginBundleBase {
   // make it say "Hello World" somewhere?
 }
  ?>
